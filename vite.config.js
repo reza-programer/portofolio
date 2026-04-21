@@ -5,7 +5,7 @@ import fs from 'fs'
 import path from 'path'
 
 // Real Backend Plugin to save Data permanently
-const dbPath = path.resolve(__dirname, 'db.json')
+const dbPath = path.resolve(__dirname, 'public', 'db.json')
 
 const apiPlugin = () => ({
   name: 'api-plugin',

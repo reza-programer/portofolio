@@ -53,7 +53,7 @@ if (localData) {
 }
 
 // Background Sync from API
-fetch('/api/projects')
+fetch('/db.json')
   .then(res => res.json())
   .then(data => {
     // Migration logic for old db format (if data is just an array)
