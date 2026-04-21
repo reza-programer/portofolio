@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-['Inter',_sans-serif] bg-[#f8fafc] text-[#0f172a] leading-relaxed overflow-x-hidden;
+  }
+  h1, h2, h3, h4, h5, h6, .outfit-font {
+    @apply font-['Outfit',_sans-serif];
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#8b5cf6] to-[#ec4899];
+  }
+  .bg-gradient-premium {
+    @apply bg-gradient-to-r from-[#8b5cf6] via-[#ec4899] to-[#3b82f6];
+  }
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-black/5;
+  }
+  .glow {
+    @apply shadow-[0_0_20px_rgba(139,92,246,0.3)];
+  }
+  .glass-card {
+    @apply bg-white border border-black/5 rounded-3xl overflow-hidden transition-all duration-300 shadow-md;
+  }
+  .glass-card:hover {
+    @apply border-[#8b5cf6] -translate-y-3 shadow-[0_20px_40px_rgba(0,0,0,0.1),_0_0_20px_rgba(139,92,246,0.2)];
+  }
+}
