@@ -53,20 +53,20 @@
       <div class="absolute -bottom-[10%] -right-[10%] w-[600px] h-[600px] bg-pink-500/20 rounded-full blur-[100px] animate-[float_20s_infinite_alternate] delay-1000"></div>
       
       <div class="max-w-7xl mx-auto px-8 relative z-10 w-full">
-        <div class="flex flex-col items-center justify-center gap-16">
-          <div class="flex-1 text-center">
+        <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-16">
+          <div class="flex-1 text-center md:text-left">
             <h2 class="animate-fade-up [animation-delay:200ms] text-xl md:text-2xl text-[#8b5cf6] mb-2 tracking-widest uppercase font-semibold opacity-0">Halo, Saya</h2>
             <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-tight font-['Outfit'] opacity-0 animate-fade-up [animation-delay:400ms]">
               {{ typedName }}<span class="animate-pulse text-[#8b5cf6]">|</span>
             </h1>
             <h3 class="animate-fade-up [animation-delay:600ms] text-2xl md:text-4xl text-gradient font-semibold mb-6 opacity-0">Frontend Developer</h3>
-            <p class="animate-fade-up [animation-delay:800ms] text-xl text-[#475569] mb-10 max-w-2xl mx-auto opacity-0">Membangun pengalaman digital premium dengan teknologi modern yang berfokus pada estetika dan performa.</p>
-            <div class="animate-fade-up [animation-delay:1000ms] flex flex-col sm:flex-row gap-4 justify-center opacity-0">
+            <p class="animate-fade-up [animation-delay:800ms] text-xl text-[#475569] mb-10 max-w-2xl mx-auto md:mx-0 opacity-0">Membangun pengalaman digital premium dengan teknologi modern yang berfokus pada estetika dan performa.</p>
+            <div class="animate-fade-up [animation-delay:1000ms] flex flex-col sm:flex-row gap-4 justify-center md:justify-start opacity-0">
               <a href="#projects" class="inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold font-['Outfit'] tracking-wide text-white bg-gradient-premium shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(236,72,153,0.6)] transition-all">Lihat Karya</a>
               <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold font-['Outfit'] tracking-wide text-[#0f172a] bg-transparent border border-black/10 backdrop-blur-sm hover:border-[#8b5cf6] hover:bg-[#8b5cf6]/10 hover:-translate-y-1 transition-all">Hubungi Saya</a>
             </div>
           </div>
-          <div class="flex-1 flex justify-center items-center relative w-full perspective-1000 max-w-xl">
+          <div class="flex-1 flex justify-center items-center relative w-full perspective-1000">
             <IdCard />
           </div>
         </div>
