@@ -215,7 +215,7 @@
                       <div class="absolute -top-10 -right-10 w-32 h-32 bg-[#8b5cf6]/20 blur-[50px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                       <div class="relative z-10">
                         <h3 class="text-3xl font-extrabold mb-4 font-['Outfit'] group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#8b5cf6] group-hover:to-[#ec4899] transition-all">{{ proj.title }}</h3>
-                        <p class="text-[#475569] text-base leading-relaxed">{{ proj.desc }}</p>
+                        <p class="text-[#475569] text-base leading-relaxed text-justify">{{ proj.desc }}</p>
                       </div>
                     </div>
                   </div>
@@ -260,7 +260,7 @@
                 <div class="absolute -top-10 -right-10 w-32 h-32 bg-[#8b5cf6]/20 blur-[50px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div class="relative z-10">
                   <h3 class="text-3xl font-extrabold mb-4 font-['Outfit'] group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#8b5cf6] group-hover:to-[#ec4899] transition-all">{{ proj.title }}</h3>
-                  <p class="text-[#475569] text-base leading-relaxed">{{ proj.desc }}</p>
+                  <p class="text-[#475569] text-base leading-relaxed text-justify">{{ proj.desc }}</p>
                 </div>
               </div>
             </div>
@@ -273,23 +273,36 @@
     <section id="contact" class="py-32">
       <div class="max-w-7xl mx-auto px-8">
         <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-16 font-['Outfit']">Hubungi <span class="text-gradient">Saya</span></h2>
-        <div class="max-w-2xl mx-auto">
-          <form @submit.prevent="submitForm" class="bg-white p-10 md:p-14 rounded-3xl border border-black/5 shadow-[0_20px_40px_rgba(0,0,0,0.5)] relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-premium"></div>
+        <div class="max-w-xl mx-auto drop-shadow-[0_0_15px_rgba(139,92,246,0.15)]">
+          <form @submit.prevent="submitForm" class="bg-white p-8 md:p-12 rounded-3xl border border-black/5 shadow-[0_20px_40px_rgba(0,0,0,0.1)] relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-premium"></div>
             <div class="mb-6">
-              <input type="text" placeholder="Nama" required class="w-full p-4 bg-[#f8fafc] border border-black/5 rounded-xl focus:outline-none focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6] transition-all">
+              <input v-model="contactForm.name" type="text" placeholder="Nama" required class="w-full p-4 bg-[#f8fafc] border border-black/5 rounded-xl focus:outline-none focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6] transition-all">
             </div>
             <div class="mb-6">
-              <input type="email" placeholder="Email" required class="w-full p-4 bg-[#f8fafc] border border-black/5 rounded-xl focus:outline-none focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6] transition-all">
+              <input v-model="contactForm.email" type="email" placeholder="Email" required class="w-full p-4 bg-[#f8fafc] border border-black/5 rounded-xl focus:outline-none focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6] transition-all">
             </div>
             <div class="mb-8">
-              <textarea rows="5" placeholder="Pesan" required class="w-full p-4 bg-[#f8fafc] border border-black/5 rounded-xl focus:outline-none focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6] transition-all"></textarea>
+              <textarea v-model="contactForm.message" rows="5" placeholder="Pesan" required class="w-full p-4 bg-[#f8fafc] border border-black/5 rounded-xl focus:outline-none focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6] transition-all"></textarea>
             </div>
             <button type="submit" :disabled="isSubmitting" class="w-full font-['Outfit'] font-bold text-lg p-4 rounded-xl text-white bg-gradient-premium shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(236,72,153,0.6)] transition-all disabled:opacity-70 disabled:hover:translate-y-0 relative z-10 overflow-hidden group">
               <span class="relative z-10">{{ isSubmitting ? 'Mengirim...' : 'Kirim Pesan' }}</span>
               <div class="absolute inset-0 bg-gradient-to-r from-[#3b82f6] via-[#ec4899] to-[#8b5cf6] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
             </button>
           </form>
+
+          <!-- Floating Toast Notification for Contact -->
+          <transition name="toast">
+            <div v-if="contactSuccess" class="fixed top-10 right-10 z-[3000] flex items-center gap-4 bg-gradient-to-r from-[#8b5cf6] to-[#ec4899] text-white px-8 py-5 rounded-2xl shadow-[0_20px_50px_rgba(139,92,246,0.5)] border border-white/20 backdrop-blur-md">
+              <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center animate-bounce">
+                <i class="fas fa-paper-plane text-sm"></i>
+              </div>
+              <div>
+                <p class="font-bold text-lg">Pesan Terkirim!</p>
+                <p class="text-white/80 text-sm">Terima kasih atas pesan Anda.</p>
+              </div>
+            </div>
+          </transition>
         </div>
       </div>
     </section>
@@ -348,7 +361,7 @@
 import { ref, onMounted, onUnmounted, watch, computed } from 'vue'
 import Admin from './Admin.vue'
 import IdCard from './IdCard.vue'
-import { projects } from './data.js'
+import { projects, messages } from './data.js'
 
 const currentRoute = ref(window.location.hash)
 
@@ -367,6 +380,12 @@ const typedName = ref('')
 const fullName = "Mohamad Reza Nurpadilah"
 const isScrolled = ref(false)
 const isSubmitting = ref(false)
+const contactSuccess = ref(false)
+const contactForm = ref({
+  name: '',
+  email: '',
+  message: ''
+})
 const isMenuOpen = ref(false)
 
 const startTypingEffect = () => {
@@ -472,9 +491,30 @@ onUnmounted(() => {
 
 const submitForm = () => {
   isSubmitting.value = true
+  // Simulate API call
   setTimeout(() => {
-    alert('Terima kasih! Pesan Anda telah terkirim.')
+    // Save message to global state
+    messages.value.push({
+      id: Date.now(),
+      ...contactForm.value,
+      date: new Date().toLocaleString('id-ID'),
+      status: 'unread'
+    })
+
     isSubmitting.value = false
+    contactSuccess.value = true
+    
+    // Clear form
+    contactForm.value = {
+      name: '',
+      email: '',
+      message: ''
+    }
+    
+    // Hide notification after 4 seconds
+    setTimeout(() => {
+      contactSuccess.value = false
+    }, 4000)
   }, 1500)
 }
 
@@ -599,5 +639,21 @@ html {
   opacity: 0;
   transform: scale(0.96);
   filter: blur(4px);
+}
+
+/* Toast Notification Animation */
+.toast-enter-active,
+.toast-leave-active {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast-enter-from {
+  opacity: 0;
+  transform: translateY(-20px) scale(0.9);
+}
+
+.toast-leave-to {
+  opacity: 0;
+  transform: translateX(20px);
 }
 </style>
