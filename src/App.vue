@@ -138,7 +138,7 @@
           <!-- Card 2: BPN -->
           <div class="glass-card group cursor-pointer" @click="openModal('Frontend Developer di BPN', 'Mengembangkan antarmuka aplikasi menggunakan Vue.js dan JavaScript. Mengimplementasikan desain UI/UX menjadi komponen yang reusable dan modular. Mengelola state dan interaksi data pada frontend untuk meningkatkan pengalaman pengguna.', ['/bpn.png'])">
             <div class="relative pt-[60%] overflow-hidden bg-black/50">
-              <img src="/bpn.png" class="absolute top-0 left-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" />
+              <img src="/bpn.png" loading="lazy" class="absolute top-0 left-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" />
               <div class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/80 backdrop-blur flex items-center justify-center border border-black/5 opacity-0 group-hover:opacity-100 transition-opacity text-[#0f172a] hover:text-[#8b5cf6]"><i class="fas fa-search-plus"></i></div>
             </div>
             <div class="p-8 bg-gradient-to-t from-white to-transparent h-full">
@@ -151,7 +151,7 @@
           <!-- Card 3: BSN -->
           <div class="glass-card group cursor-pointer" @click="openModal('Fullstack Developer di BSN', 'Mengembangkan aplikasi web menggunakan Laravel (backend) dan Vue.js (frontend). Membangun dan mengelola REST API menggunakan Laravel untuk kebutuhan integrasi sistem. Mengelola database (MySQL) termasuk desain struktur tabel dan query.', ['/bsn.png'])">
             <div class="relative pt-[60%] overflow-hidden bg-black/50">
-              <img src="/bsn.png" class="absolute top-0 left-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" />
+              <img src="/bsn.png" loading="lazy" class="absolute top-0 left-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" />
               <div class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/80 backdrop-blur flex items-center justify-center border border-black/5 opacity-0 group-hover:opacity-100 transition-opacity text-[#0f172a] hover:text-[#8b5cf6]"><i class="fas fa-search-plus"></i></div>
             </div>
             <div class="p-8 bg-gradient-to-t from-white to-transparent h-full">
@@ -200,7 +200,7 @@
                       </span>
                     </div>
                     <div class="relative aspect-video overflow-hidden bg-[#f1f5f9] flex items-center justify-center rounded-t-2xl">
-                      <img :src="proj.images[0] || '/placeholder.png'" class="absolute inset-0 w-full h-full object-cover sm:object-contain opacity-80 group-hover:opacity-100 transition-transform duration-700 group-hover:scale-105" />
+                      <img :src="proj.images[0] || '/placeholder.png'" loading="lazy" class="absolute inset-0 w-full h-full object-cover sm:object-contain opacity-80 group-hover:opacity-100 transition-transform duration-700 group-hover:scale-105" />
                       <!-- Hover Overlay with tags -->
                       <div class="absolute inset-0 bg-gradient-to-t from-[#f8fafc] via-[#f8fafc]/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
                       
@@ -245,7 +245,7 @@
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-10 justify-items-center">
             <div v-for="proj in regularProjects" :key="proj.id" class="glass-card group cursor-pointer flex flex-col h-full" @click="openModal(proj.title, proj.desc, proj.images)">
               <div class="relative aspect-video overflow-hidden bg-[#f1f5f9] flex items-center justify-center">
-                <img :src="proj.images[0] || '/placeholder.png'" class="absolute inset-0 w-full h-full object-cover sm:object-contain opacity-70 group-hover:opacity-100 transition-transform duration-700 group-hover:scale-105" />
+                <img :src="proj.images[0] || '/placeholder.png'" loading="lazy" class="absolute inset-0 w-full h-full object-cover sm:object-contain opacity-70 group-hover:opacity-100 transition-transform duration-700 group-hover:scale-105" />
                 <!-- Hover Overlay with tags -->
                 <div class="absolute inset-0 bg-gradient-to-t from-[#f8fafc] via-[#f8fafc]/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
                 
@@ -358,8 +358,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch, computed } from 'vue'
-import Admin from './Admin.vue'
+import { ref, onMounted, onUnmounted, watch, computed, defineAsyncComponent } from 'vue'
+const Admin = defineAsyncComponent(() => import('./Admin.vue'))
 import IdCard from './IdCard.vue'
 import { projects, messages } from './data.js'
 
@@ -474,6 +474,8 @@ const handleScroll = () => {
   isScrolled.value = window.scrollY > 50
 }
 
+let scrollObserver = null
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
   
@@ -482,10 +484,25 @@ onMounted(() => {
     isLoading.value = false
     setTimeout(startTypingEffect, 600) // Start typing after name line fades up
   }, 1000)
+
+  // Intersection Observer for Scroll Reveal
+  scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed')
+      }
+    })
+  }, { threshold: 0.1 })
+
+  document.querySelectorAll('section, .glass-card').forEach(el => {
+    el.classList.add('reveal-on-scroll')
+    scrollObserver.observe(el)
+  })
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
+  if (scrollObserver) scrollObserver.disconnect()
   pauseSlideShow()
 })
 
@@ -639,6 +656,18 @@ html {
   opacity: 0;
   transform: scale(0.96);
   filter: blur(4px);
+}
+
+/* Scroll Reveal Base Styles */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Toast Notification Animation */

@@ -69,7 +69,7 @@
                :class="isHovered ? 'scale-110 translate-z-10' : ''">
             <div class="w-full h-full rounded-lg overflow-hidden border border-gray-200 relative bg-white relative">
                <!-- Removed 'filter contrast-110' to make photo clearly visible -->
-               <img src="/profile.jpeg" class="w-full h-full object-cover brightness-105" />
+               <img src="/profile.jpeg" loading="lazy" class="w-full h-full object-cover brightness-105" />
                <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent"></div>
             </div>
             <!-- Futuristic corners -->

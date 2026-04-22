@@ -83,7 +83,7 @@
               <!-- Compact Preview Grid -->
               <div v-if="form.images && form.images.length > 0" class="flex flex-wrap gap-2">
                 <div v-for="(img, idx) in form.images.slice(0, 4)" :key="idx" class="relative w-12 h-12 group">
-                  <img :src="img" class="w-full h-full object-cover rounded-lg border border-slate-200" />
+                  <img :src="img" loading="lazy" class="w-full h-full object-cover rounded-lg border border-slate-200" />
                   <button type="button" @click="removeImage(idx)" class="absolute -top-1.5 -right-1.5 w-4 h-4 bg-slate-900 text-white rounded-full flex items-center justify-center text-[8px] opacity-0 group-hover:opacity-100"><i class="fas fa-times"></i></button>
                 </div>
                 <div v-if="form.images.length > 4" class="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center text-[10px] font-bold text-slate-400 border border-slate-200">+{{ form.images.length - 4 }}</div>
@@ -114,7 +114,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <div v-for="proj in projects" :key="proj.id" class="group bg-white border border-slate-200 rounded-xl p-4 hover:border-slate-900 transition-all">
               <div class="flex gap-4 items-start mb-4">
-                <img :src="proj.images[0] || '/placeholder.png'" class="w-16 h-16 object-cover rounded-lg bg-slate-50 border border-slate-100" />
+                <img :src="proj.images[0] || '/placeholder.png'" loading="lazy" class="w-16 h-16 object-cover rounded-lg bg-slate-50 border border-slate-100" />
                 <div class="min-w-0">
                   <h3 class="font-bold text-sm truncate">{{ proj.title }}</h3>
                   <div class="flex gap-1 mt-1 truncate">
