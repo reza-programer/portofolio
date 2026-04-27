@@ -181,10 +181,10 @@
           </div>
           <div class="relative">
             <!-- Navigation Arrows -->
-            <button v-if="featuredProjects.length > 1" @click="prevFeatured" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-30 w-12 h-12 rounded-full bg-white border border-black/10 flex items-center justify-center text-[#0f172a] hover:text-white hover:bg-[#8b5cf6] hover:border-[#8b5cf6] transition-all shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+            <button v-if="featuredProjects.length > 1" @click="prevFeatured" class="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-30 w-12 h-12 rounded-full bg-white border border-black/10 items-center justify-center text-[#0f172a] hover:text-white hover:bg-[#8b5cf6] hover:border-[#8b5cf6] transition-all shadow-[0_0_20px_rgba(0,0,0,0.5)]">
               <i class="fas fa-chevron-left"></i>
             </button>
-            <button v-if="featuredProjects.length > 1" @click="nextFeatured" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-30 w-12 h-12 rounded-full bg-white border border-black/10 flex items-center justify-center text-[#0f172a] hover:text-white hover:bg-[#8b5cf6] hover:border-[#8b5cf6] transition-all shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+            <button v-if="featuredProjects.length > 1" @click="nextFeatured" class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-30 w-12 h-12 rounded-full bg-white border border-black/10 items-center justify-center text-[#0f172a] hover:text-white hover:bg-[#8b5cf6] hover:border-[#8b5cf6] transition-all shadow-[0_0_20px_rgba(0,0,0,0.5)]">
               <i class="fas fa-chevron-right"></i>
             </button>
             
@@ -210,7 +210,7 @@
                       
                       <div class="absolute top-6 right-6 w-14 h-14 rounded-full bg-[#8b5cf6] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 text-white shadow-[0_0_25px_#8b5cf6]"><i class="fas fa-arrow-right -rotate-45 text-xl"></i></div>
                     </div>
-                    <div class="p-8 md:p-10 bg-gradient-to-br from-white to-[#f1f5f9] flex-grow flex flex-col justify-between border-t border-white/5 relative overflow-hidden rounded-b-2xl">
+                    <div class="p-6 md:p-10 bg-gradient-to-br from-white to-[#f1f5f9] flex-grow flex flex-col justify-between border-t border-white/5 relative overflow-hidden rounded-b-2xl">
                        <!-- Subtle glow behind text -->
                       <div class="absolute -top-10 -right-10 w-32 h-32 bg-[#8b5cf6]/20 blur-[50px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                       <div class="relative z-10">
@@ -255,7 +255,7 @@
                 
                 <div class="absolute top-6 right-6 w-14 h-14 rounded-full bg-[#8b5cf6] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 text-white shadow-[0_0_25px_#8b5cf6]"><i class="fas fa-arrow-right -rotate-45 text-xl"></i></div>
               </div>
-              <div class="p-8 md:p-10 bg-gradient-to-br from-white to-[#f1f5f9] flex-grow flex flex-col justify-between border-t border-white/5 relative overflow-hidden">
+              <div class="p-6 md:p-10 bg-gradient-to-br from-white to-[#f1f5f9] flex-grow flex flex-col justify-between border-t border-white/5 relative overflow-hidden">
                  <!-- Subtle glow behind text -->
                 <div class="absolute -top-10 -right-10 w-32 h-32 bg-[#8b5cf6]/20 blur-[50px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div class="relative z-10">
@@ -321,8 +321,8 @@
 
     <!-- Modal Lightbox -->
     <transition name="modal-fade">
-      <div v-if="modal.show" class="fixed inset-0 z-[2000] bg-white/90 backdrop-blur-xl p-4 md:p-8 overflow-y-auto w-full h-full flex items-center justify-center" @click.self="closeModal">
-        <div class="absolute top-6 right-6 text-[#0f172a] text-5xl cursor-pointer hover:text-[#ec4899] transition-transform hover:scale-110 hover:rotate-90 duration-300 z-[2001]" @click="closeModal">&times;</div>
+      <div v-if="modal.show" class="fixed inset-0 z-[2000] bg-white/90 backdrop-blur-xl p-4 md:p-8 overflow-y-auto w-full h-full flex items-start justify-center md:items-center py-10" @click.self="closeModal">
+        <div class="absolute top-4 right-4 md:top-6 md:right-6 text-[#0f172a] text-3xl md:text-5xl cursor-pointer hover:text-[#ec4899] transition-transform hover:scale-110 hover:rotate-90 duration-300 z-[2001]" @click="closeModal">&times;</div>
         <div class="modal-content-scale bg-white border border-black/5 rounded-3xl overflow-hidden w-full max-w-6xl md:w-[95vw] shadow-[0_30px_60px_rgba(0,0,0,0.15)] relative mt-16 md:mt-0 flex flex-col md:flex-row min-h-[50vh] md:min-h-[70vh]">
           <!-- Image Section -->
           <div class="relative bg-[#f1f5f9] md:w-2/3 flex justify-center items-center h-[40vh] md:h-auto overflow-hidden group">
@@ -333,11 +333,11 @@
             <button v-if="modal.images.length > 1" @click.stop="nextImg" class="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/80 backdrop-blur-md border border-black/5 rounded-full text-[#0f172a] hover:bg-[#8b5cf6] hover:text-white hover:scale-110 transition-all flex items-center justify-center z-20 shadow-lg md:opacity-0 md:group-hover:opacity-100"><i class="fas fa-chevron-right text-lg"></i></button>
           </div>
           <!-- Info Section -->
-          <div class="md:w-1/3 p-10 md:p-14 flex flex-col justify-center relative bg-white border-l border-black/5">
+          <div class="md:w-1/3 p-6 md:p-14 flex flex-col justify-center relative bg-white border-l border-black/5">
             <div class="absolute -top-10 -right-10 w-40 h-40 bg-[#8b5cf6]/10 blur-3xl rounded-full pointer-events-none"></div>
             <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-[#ec4899]/10 blur-3xl rounded-full pointer-events-none"></div>
             
-            <h3 class="text-3xl md:text-4xl font-extrabold mb-6 font-['Outfit'] bg-clip-text text-transparent bg-gradient-to-r from-[#8b5cf6] to-[#ec4899]">{{ modal.title }}</h3>
+            <h3 class="text-2xl md:text-4xl font-extrabold mb-6 font-['Outfit'] bg-clip-text text-transparent bg-gradient-to-r from-[#8b5cf6] to-[#ec4899]">{{ modal.title }}</h3>
             <p class="text-slate-500 text-lg leading-relaxed">{{ modal.desc }}</p>
             
             <div v-if="modal.images.length > 1" class="flex gap-3 mt-12 justify-start">
