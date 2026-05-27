@@ -79,36 +79,36 @@
         <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-10 md:mb-16 font-['Outfit']">Tentang <span class="text-gradient">Saya</span></h2>
         <div class="max-w-4xl mx-auto text-center text-base md:text-lg text-[#475569]">
           <p>Saya adalah seorang Web Developer yang berdedikasi dengan gairah untuk menciptakan situs web yang bersih, interaktif, dan ramah pengguna. Saya spesialis dalam membangun pengalaman frontend dan backend yang kuat.</p>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-12 md:mt-16">
-            <div class="bg-[#f8fafc] p-6 md:p-8 rounded-2xl border border-black/5 hover:border-[#8b5cf6] hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(139,92,246,0.15)] transition-all flex flex-col items-center gap-4 group overflow-hidden relative">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-12 md:mt-16 reveal-group">
+            <div class="bg-[#f8fafc] p-6 md:p-8 rounded-2xl border border-black/5 hover:border-[#8b5cf6] hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(139,92,246,0.15)] transition-all flex flex-col items-center gap-4 group overflow-hidden relative reveal-item">
               <i class="fab fa-html5 text-5xl text-[#0f172a] opacity-70 group-hover:opacity-100 group-hover:text-[#8b5cf6] transition-all group-hover:scale-110"></i>
               <span class="font-semibold text-sm md:text-base">HTML5</span>
             </div>
-            <div class="bg-[#f8fafc] p-6 md:p-8 rounded-2xl border border-black/5 hover:border-[#8b5cf6] hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(139,92,246,0.15)] transition-all flex flex-col items-center gap-4 group">
+            <div class="bg-[#f8fafc] p-6 md:p-8 rounded-2xl border border-black/5 hover:border-[#8b5cf6] hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(139,92,246,0.15)] transition-all flex flex-col items-center gap-4 group reveal-item">
               <i class="fab fa-css3-alt text-5xl text-[#0f172a] opacity-70 group-hover:opacity-100 group-hover:text-[#8b5cf6] transition-all group-hover:scale-110"></i>
               <span class="font-semibold text-sm md:text-base">CSS3</span>
             </div>
-            <div class="bg-[#f8fafc] p-6 md:p-8 rounded-2xl border border-black/5 hover:border-[#8b5cf6] hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(139,92,246,0.15)] transition-all flex flex-col items-center gap-4 group">
+            <div class="bg-[#f8fafc] p-6 md:p-8 rounded-2xl border border-black/5 hover:border-[#8b5cf6] hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(139,92,246,0.15)] transition-all flex flex-col items-center gap-4 group reveal-item">
               <i class="fab fa-js text-5xl text-[#0f172a] opacity-70 group-hover:opacity-100 group-hover:text-[#8b5cf6] transition-all group-hover:scale-110"></i>
               <span class="font-semibold text-sm md:text-base">JavaScript</span>
             </div>
-            <div class="bg-[#f8fafc] p-6 md:p-8 rounded-2xl border border-black/5 hover:border-[#8b5cf6] hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(139,92,246,0.15)] transition-all flex flex-col items-center gap-4 group">
+            <div class="bg-[#f8fafc] p-6 md:p-8 rounded-2xl border border-black/5 hover:border-[#8b5cf6] hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(139,92,246,0.15)] transition-all flex flex-col items-center gap-4 group reveal-item">
               <i class="fab fa-laravel text-5xl text-[#0f172a] opacity-70 group-hover:opacity-100 group-hover:text-[#8b5cf6] transition-all group-hover:scale-110"></i>
               <span class="font-semibold text-sm md:text-base">Laravel</span>
             </div>
-            <div class="bg-[#f8fafc] p-6 md:p-8 rounded-2xl border border-black/5 hover:border-[#8b5cf6] hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(139,92,246,0.15)] transition-all flex flex-col items-center gap-4 group">
+            <div class="bg-[#f8fafc] p-6 md:p-8 rounded-2xl border border-black/5 hover:border-[#8b5cf6] hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(139,92,246,0.15)] transition-all flex flex-col items-center gap-4 group reveal-item">
               <img src="https://cdn.worldvectorlogo.com/logos/codeigniter.svg" class="w-12 h-12 grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all" />
               <span class="font-semibold text-sm md:text-base">CodeIgniter</span>
             </div>
-            <div class="bg-[#f8fafc] p-6 md:p-8 rounded-2xl border border-black/5 hover:border-[#8b5cf6] hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(139,92,246,0.15)] transition-all flex flex-col items-center gap-4 group">
+            <div class="bg-[#f8fafc] p-6 md:p-8 rounded-2xl border border-black/5 hover:border-[#8b5cf6] hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(139,92,246,0.15)] transition-all flex flex-col items-center gap-4 group reveal-item">
               <i class="fab fa-python text-5xl text-[#0f172a] opacity-70 group-hover:opacity-100 group-hover:text-[#8b5cf6] transition-all group-hover:scale-110"></i>
               <span class="font-semibold text-sm md:text-base">Python</span>
             </div>
-            <div class="bg-[#f8fafc] p-6 md:p-8 rounded-2xl border border-black/5 hover:border-[#8b5cf6] hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(139,92,246,0.15)] transition-all flex flex-col items-center gap-4 group">
+            <div class="bg-[#f8fafc] p-6 md:p-8 rounded-2xl border border-black/5 hover:border-[#8b5cf6] hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(139,92,246,0.15)] transition-all flex flex-col items-center gap-4 group reveal-item">
               <img src="https://cdn.worldvectorlogo.com/logos/next-js.svg" class="w-12 h-12 grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all" />
               <span class="font-semibold text-sm md:text-base">Next.js</span>
             </div>
-            <div class="bg-[#f8fafc] p-6 md:p-8 rounded-2xl border border-black/5 hover:border-[#8b5cf6] hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(139,92,246,0.15)] transition-all flex flex-col items-center gap-4 group">
+            <div class="bg-[#f8fafc] p-6 md:p-8 rounded-2xl border border-black/5 hover:border-[#8b5cf6] hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(139,92,246,0.15)] transition-all flex flex-col items-center gap-4 group reveal-item">
               <i class="fab fa-vuejs text-5xl text-[#0f172a] opacity-70 group-hover:opacity-100 group-hover:text-[#8b5cf6] transition-all group-hover:scale-110"></i>
               <span class="font-semibold text-sm md:text-base">Vue.js</span>
             </div>
@@ -121,11 +121,11 @@
     <section id="experience" class="py-32">
       <div class="max-w-7xl mx-auto px-8">
         <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-16 font-['Outfit']">Pengalaman <span class="text-gradient">Magang</span></h2>
-        <div class="grid md:grid-cols-3 gap-10">
+        <div class="grid md:grid-cols-3 gap-10 reveal-group">
           <!-- Card 1: PT Orbit Ventura -->
-          <div class="glass-card group cursor-pointer" @click="openModal('AI Engineer di PT Orbit Ventura', 'Mengerjakan proyek Website AI berbasis Computer Vision menggunakan algoritma YOLOv5 untuk deteksi objek secara real-time menggunakan bahasa pemrograman python. Membangun backend menggunakan Python untuk integrasi model AI ke aplikasi web. Melakukan preprocessing dataset, training model, dan optimasi hyperparameter untuk meningkatkan akurasi deteksi.', ['/orbit.png'])">
+          <div class="glass-card group cursor-pointer reveal-item" @click="openModal('AI Engineer di PT Orbit Ventura', 'Mengerjakan proyek Website AI berbasis Computer Vision menggunakan algoritma YOLOv5 untuk deteksi objek secara real-time menggunakan bahasa pemrograman python. Membangun backend menggunakan Python untuk integrasi model AI ke aplikasi web. Melakukan preprocessing dataset, training model, dan optimasi hyperparameter untuk meningkatkan akurasi deteksi.', ['/orbit.png'])">
             <div class="relative pt-[60%] overflow-hidden bg-black/50">
-              <img src="/orbit.png" class="absolute top-0 left-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" />
+              <img src="/orbit.png" loading="lazy" class="absolute top-0 left-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" />
               <div class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/80 backdrop-blur flex items-center justify-center border border-black/5 opacity-0 group-hover:opacity-100 transition-opacity text-[#0f172a] hover:text-[#8b5cf6]"><i class="fas fa-search-plus"></i></div>
             </div>
             <div class="p-8 bg-gradient-to-t from-white to-transparent h-full">
@@ -136,7 +136,7 @@
             </div>
           </div>
           <!-- Card 2: BPN -->
-          <div class="glass-card group cursor-pointer" @click="openModal('Frontend Developer di BPN', 'Mengembangkan antarmuka aplikasi menggunakan Vue.js dan JavaScript. Mengimplementasikan desain UI/UX menjadi komponen yang reusable dan modular. Mengelola state dan interaksi data pada frontend untuk meningkatkan pengalaman pengguna.', ['/bpn.png'])">
+          <div class="glass-card group cursor-pointer reveal-item" @click="openModal('Frontend Developer di BPN', 'Mengembangkan antarmuka aplikasi menggunakan Vue.js dan JavaScript. Mengimplementasikan desain UI/UX menjadi komponen yang reusable dan modular. Mengelola state dan interaksi data pada frontend untuk meningkatkan pengalaman pengguna.', ['/bpn.png'])">
             <div class="relative pt-[60%] overflow-hidden bg-black/50">
               <img src="/bpn.png" loading="lazy" class="absolute top-0 left-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" />
               <div class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/80 backdrop-blur flex items-center justify-center border border-black/5 opacity-0 group-hover:opacity-100 transition-opacity text-[#0f172a] hover:text-[#8b5cf6]"><i class="fas fa-search-plus"></i></div>
@@ -149,7 +149,7 @@
             </div>
           </div>
           <!-- Card 3: BSN -->
-          <div class="glass-card group cursor-pointer" @click="openModal('Fullstack Developer di BSN', 'Mengembangkan aplikasi web menggunakan Laravel (backend) dan Vue.js (frontend). Membangun dan mengelola REST API menggunakan Laravel untuk kebutuhan integrasi sistem. Mengelola database (MySQL) termasuk desain struktur tabel dan query.', ['/bsn.png'])">
+          <div class="glass-card group cursor-pointer reveal-item" @click="openModal('Fullstack Developer di BSN', 'Mengembangkan aplikasi web menggunakan Laravel (backend) dan Vue.js (frontend). Membangun dan mengelola REST API menggunakan Laravel untuk kebutuhan integrasi sistem. Mengelola database (MySQL) termasuk desain struktur tabel dan query.', ['/bsn.png'])">
             <div class="relative pt-[60%] overflow-hidden bg-black/50">
               <img src="/bsn.png" loading="lazy" class="absolute top-0 left-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" />
               <div class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/80 backdrop-blur flex items-center justify-center border border-black/5 opacity-0 group-hover:opacity-100 transition-opacity text-[#0f172a] hover:text-[#8b5cf6]"><i class="fas fa-search-plus"></i></div>
@@ -192,7 +192,7 @@
             <div class="overflow-hidden">
               <div class="flex transition-transform duration-500 ease-out" :style="{ transform: `translateX(-${featuredIndex * 100}%)` }">
                 <div v-for="proj in featuredProjects" :key="proj.id" class="w-full flex-shrink-0 px-4">
-                  <div class="glass-card group cursor-pointer flex flex-col h-full relative max-w-4xl mx-auto" @click="openModal(proj.title, proj.desc, proj.images)">
+                  <div class="glass-card group cursor-pointer flex flex-col h-full relative max-w-4xl mx-auto reveal-on-scroll" @click="openModal(proj.title, proj.desc, proj.images)">
                     <!-- Featured badge -->
                     <div class="absolute top-4 left-4 z-20">
                       <span class="px-4 py-2 bg-gradient-to-r from-[#8b5cf6] to-[#ec4899] rounded-full text-white text-xs font-bold shadow-[0_0_20px_rgba(139,92,246,0.5)]">
@@ -242,8 +242,8 @@
             <h3 class="text-xl font-bold text-[#475569] uppercase tracking-wider">Other Projects</h3>
             <div class="w-12 h-1 bg-black/10 rounded-full"></div>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-10 justify-items-center">
-            <div v-for="proj in regularProjects" :key="proj.id" class="glass-card group cursor-pointer flex flex-col h-full" @click="openModal(proj.title, proj.desc, proj.images)">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-10 justify-items-center reveal-group">
+            <div v-for="proj in regularProjects" :key="proj.id" class="glass-card group cursor-pointer flex flex-col h-full reveal-item" @click="openModal(proj.title, proj.desc, proj.images)">
               <div class="relative aspect-video overflow-hidden bg-[#f1f5f9] flex items-center justify-center">
                 <img :src="proj.images[0] || '/placeholder.png'" loading="lazy" class="absolute inset-0 w-full h-full object-cover sm:object-contain opacity-70 group-hover:opacity-100 transition-transform duration-700 group-hover:scale-105" />
                 <!-- Hover Overlay with tags -->
@@ -274,21 +274,23 @@
       <div class="max-w-7xl mx-auto px-8">
         <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-16 font-['Outfit']">Hubungi <span class="text-gradient">Saya</span></h2>
         <div class="max-w-xl mx-auto drop-shadow-[0_0_15px_rgba(139,92,246,0.15)]">
-          <form @submit.prevent="submitForm" class="bg-white p-8 md:p-12 rounded-3xl border border-black/5 shadow-[0_20px_40px_rgba(0,0,0,0.1)] relative overflow-hidden">
+          <form @submit.prevent="submitForm" class="bg-white p-8 md:p-12 rounded-3xl border border-black/5 shadow-[0_20px_40px_rgba(0,0,0,0.1)] relative overflow-hidden reveal-group">
             <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-premium"></div>
-            <div class="mb-6">
+            <div class="mb-6 reveal-item">
               <input v-model="contactForm.name" type="text" placeholder="Nama" required class="w-full p-4 bg-[#f8fafc] border border-black/5 rounded-xl focus:outline-none focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6] transition-all">
             </div>
-            <div class="mb-6">
+            <div class="mb-6 reveal-item">
               <input v-model="contactForm.email" type="email" placeholder="Email" required class="w-full p-4 bg-[#f8fafc] border border-black/5 rounded-xl focus:outline-none focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6] transition-all">
             </div>
-            <div class="mb-8">
+            <div class="mb-8 reveal-item">
               <textarea v-model="contactForm.message" rows="5" placeholder="Pesan" required class="w-full p-4 bg-[#f8fafc] border border-black/5 rounded-xl focus:outline-none focus:border-[#8b5cf6] focus:ring-1 focus:ring-[#8b5cf6] transition-all"></textarea>
             </div>
-            <button type="submit" :disabled="isSubmitting" class="w-full font-['Outfit'] font-bold text-lg p-4 rounded-xl text-white bg-gradient-premium shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(236,72,153,0.6)] transition-all disabled:opacity-70 disabled:hover:translate-y-0 relative z-10 overflow-hidden group">
-              <span class="relative z-10">{{ isSubmitting ? 'Mengirim...' : 'Kirim Pesan' }}</span>
-              <div class="absolute inset-0 bg-gradient-to-r from-[#3b82f6] via-[#ec4899] to-[#8b5cf6] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
-            </button>
+            <div class="reveal-item">
+              <button type="submit" :disabled="isSubmitting" class="w-full font-['Outfit'] font-bold text-lg p-4 rounded-xl text-white bg-gradient-premium shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(236,72,153,0.6)] transition-all disabled:opacity-70 disabled:hover:translate-y-0 relative z-10 overflow-hidden group">
+                <span class="relative z-10">{{ isSubmitting ? 'Mengirim...' : 'Kirim Pesan' }}</span>
+                <div class="absolute inset-0 bg-gradient-to-r from-[#3b82f6] via-[#ec4899] to-[#8b5cf6] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+              </button>
+            </div>
           </form>
 
           <!-- Floating Toast Notification for Contact -->
@@ -322,43 +324,47 @@
     <!-- Modal Lightbox -->
     <transition name="modal-fade">
       <div v-if="modal.show" class="fixed inset-0 z-[2000] bg-white/90 backdrop-blur-xl p-4 md:p-8 overflow-y-auto w-full h-full flex items-start justify-center md:items-center py-10" @click.self="closeModal">
-        <div class="absolute top-4 right-4 md:top-6 md:right-6 text-[#0f172a] text-3xl md:text-5xl cursor-pointer hover:text-[#ec4899] transition-transform hover:scale-110 hover:rotate-90 duration-300 z-[2001]" @click="closeModal">&times;</div>
+        <!-- Modern Floating Close Button (Fixed so it doesn't scroll away) -->
+        <button class="fixed top-4 right-4 z-[2001] w-10 h-10 md:w-12 md:h-12 rounded-full glass flex items-center justify-center text-[#0f172a] hover:text-[#ec4899] hover:scale-110 active:scale-95 transition-all shadow-lg border border-black/10 focus:outline-none" @click="closeModal">
+          <i class="fas fa-times text-lg"></i>
+        </button>
+        
         <div class="modal-content-scale bg-white border border-black/5 rounded-3xl overflow-hidden w-full max-w-6xl md:w-[95vw] shadow-[0_30px_60px_rgba(0,0,0,0.15)] relative mt-16 md:mt-0 flex flex-col md:flex-row min-h-[50vh] md:min-h-[70vh]">
           <!-- Image Section -->
-          <div class="relative bg-[#f1f5f9] md:w-2/3 flex justify-center items-center h-[40vh] md:h-auto overflow-hidden group">
-            <button v-if="modal.images.length > 1" @click.stop="prevImg" class="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/80 backdrop-blur-md border border-black/5 rounded-full text-[#0f172a] hover:bg-[#8b5cf6] hover:text-white hover:scale-110 transition-all flex items-center justify-center z-20 shadow-lg md:opacity-0 md:group-hover:opacity-100"><i class="fas fa-chevron-left text-lg"></i></button>
+          <div class="relative bg-[#f1f5f9] md:w-2/3 flex justify-center items-center h-[35vh] sm:h-[45vh] md:h-auto overflow-hidden group">
+            <button v-if="modal.images.length > 1" @click.stop="prevImg" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/80 backdrop-blur-md border border-black/5 rounded-full text-[#0f172a] hover:bg-[#8b5cf6] hover:text-white hover:scale-110 transition-all flex items-center justify-center z-20 shadow-lg md:opacity-0 md:group-hover:opacity-100"><i class="fas fa-chevron-left text-base md:text-lg"></i></button>
             <transition name="image-fade" mode="out-in">
-              <img :key="modal.currentIndex" :src="modal.images[modal.currentIndex]" class="w-full h-full object-cover sm:object-contain p-0 sm:p-8 transform transition-transform duration-700 ease-out hover:scale-[1.02]" />
+              <img :key="modal.currentIndex" :src="modal.images[modal.currentIndex]" class="w-full h-full object-contain p-2 sm:p-6 md:p-8 transform transition-transform duration-700 ease-out hover:scale-[1.02]" />
             </transition>
-            <button v-if="modal.images.length > 1" @click.stop="nextImg" class="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/80 backdrop-blur-md border border-black/5 rounded-full text-[#0f172a] hover:bg-[#8b5cf6] hover:text-white hover:scale-110 transition-all flex items-center justify-center z-20 shadow-lg md:opacity-0 md:group-hover:opacity-100"><i class="fas fa-chevron-right text-lg"></i></button>
+            <button v-if="modal.images.length > 1" @click.stop="nextImg" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/80 backdrop-blur-md border border-black/5 rounded-full text-[#0f172a] hover:bg-[#8b5cf6] hover:text-white hover:scale-110 transition-all flex items-center justify-center z-20 shadow-lg md:opacity-0 md:group-hover:opacity-100"><i class="fas fa-chevron-right text-base md:text-lg"></i></button>
           </div>
           <!-- Info Section -->
-          <div class="md:w-1/3 p-6 md:p-14 flex flex-col justify-center relative bg-white border-l border-black/5">
+          <div class="md:w-1/3 p-6 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-center relative bg-white border-t md:border-t-0 md:border-l border-black/5">
             <div class="absolute -top-10 -right-10 w-40 h-40 bg-[#8b5cf6]/10 blur-3xl rounded-full pointer-events-none"></div>
             <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-[#ec4899]/10 blur-3xl rounded-full pointer-events-none"></div>
             
-            <h3 class="text-2xl md:text-4xl font-extrabold mb-6 font-['Outfit'] bg-clip-text text-transparent bg-gradient-to-r from-[#8b5cf6] to-[#ec4899]">{{ modal.title }}</h3>
-            <p class="text-slate-500 text-lg leading-relaxed">{{ modal.desc }}</p>
+            <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold mb-3 sm:mb-4 md:mb-6 font-['Outfit'] bg-clip-text text-transparent bg-gradient-to-r from-[#8b5cf6] to-[#ec4899]">{{ modal.title }}</h3>
+            <p class="text-slate-500 text-sm sm:text-base md:text-lg leading-relaxed text-justify">{{ modal.desc }}</p>
             
-            <div v-if="modal.images.length > 1" class="flex gap-3 mt-12 justify-start">
+            <div v-if="modal.images.length > 1" class="flex gap-2.5 mt-6 sm:mt-8 md:mt-12 justify-start">
               <div 
                 v-for="(img, idx) in modal.images" 
                 :key="idx" 
                 @click="setImg(idx)"
-                class="w-3 h-3 rounded-full cursor-pointer transition-all duration-300"
-                :class="idx === modal.currentIndex ? 'bg-[#8b5cf6] w-8' : 'bg-slate-200 hover:bg-slate-300'"
+                class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full cursor-pointer transition-all duration-300"
+                :class="idx === modal.currentIndex ? 'bg-[#8b5cf6] w-6 sm:w-8' : 'bg-slate-200 hover:bg-slate-300'"
               ></div>
-            </div>
             </div>
           </div>
         </div>
-      </transition>
+      </div>
+    </transition>
     </div> <!-- End Portfolio Layout -->
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch, computed, defineAsyncComponent } from 'vue'
+import { ref, onMounted, onUnmounted, watch, computed, defineAsyncComponent, nextTick } from 'vue'
 const Admin = defineAsyncComponent(() => import('./Admin.vue'))
 import IdCard from './IdCard.vue'
 import { projects, messages } from './data.js'
@@ -476,6 +482,49 @@ const handleScroll = () => {
 
 let scrollObserver = null
 
+const setupScrollObserver = () => {
+  if (scrollObserver) {
+    scrollObserver.disconnect()
+  }
+
+  scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (entry.target.classList.contains('reveal-group')) {
+          const items = entry.target.querySelectorAll('.reveal-item')
+          items.forEach((item, index) => {
+            setTimeout(() => {
+              item.classList.add('revealed')
+            }, index * 100) // 100ms delay between items
+          })
+          entry.target.classList.add('revealed')
+          scrollObserver.unobserve(entry.target)
+        } else {
+          entry.target.classList.add('revealed')
+          scrollObserver.unobserve(entry.target)
+        }
+      }
+    })
+  }, { threshold: 0.1 })
+
+  // Observe all sections and reveal groups and individual reveal-on-scroll items
+  document.querySelectorAll('section, .reveal-group, .reveal-on-scroll').forEach(el => {
+    if (!el.classList.contains('reveal-group') && !el.classList.contains('reveal-on-scroll')) {
+      el.classList.add('reveal-on-scroll')
+    }
+    // Only observe if not already revealed
+    if (!el.classList.contains('revealed')) {
+      scrollObserver.observe(el)
+    }
+  })
+}
+
+watch(projects, () => {
+  nextTick(() => {
+    setupScrollObserver()
+  })
+})
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
   
@@ -485,18 +534,8 @@ onMounted(() => {
     setTimeout(startTypingEffect, 600) // Start typing after name line fades up
   }, 1000)
 
-  // Intersection Observer for Scroll Reveal
-  scrollObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed')
-      }
-    })
-  }, { threshold: 0.1 })
-
-  document.querySelectorAll('section, .glass-card').forEach(el => {
-    el.classList.add('reveal-on-scroll')
-    scrollObserver.observe(el)
+  nextTick(() => {
+    setupScrollObserver()
   })
 })
 
@@ -659,13 +698,13 @@ html {
 }
 
 /* Scroll Reveal Base Styles */
-.reveal-on-scroll {
+.reveal-on-scroll, .reveal-item {
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.reveal-on-scroll.revealed {
+.reveal-on-scroll.revealed, .reveal-item.revealed {
   opacity: 1;
   transform: translateY(0);
 }

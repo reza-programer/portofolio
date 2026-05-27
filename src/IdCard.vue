@@ -9,11 +9,10 @@
 
     <!-- The Card -->
     <div ref="cardRef" 
-         class="id-card w-full h-full rounded-3xl relative transition-all duration-200 ease-out z-10 cursor-pointer"
-         :class="{'transition-all duration-500 ease-in-out': !isHovered}"
+         class="id-card w-full h-full rounded-3xl relative z-10 cursor-pointer"
          :style="{
-           transform: `rotateX(${rotX}deg) rotateY(${rotY}deg) scale(${isHovered ? 1.05 : 1})`,
-           boxShadow: isHovered ? '0 40px 80px rgba(139, 92, 246, 0.5)' : '0 20px 40px rgba(0,0,0,0.8)'
+           transform: `rotateX(${rotX}deg) rotateY(${rotY}deg) scale(${scale})`,
+           boxShadow: `0 ${shadowY}px ${shadowBlur}px rgba(139, 92, 246, ${shadowOpacity})`
          }">
       
       <!-- Backing gradient & Glassmorphism -->
@@ -65,10 +64,8 @@
           <div class="absolute inset-0 opacity-[0.05] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPjxyZWN0IHdpZHRoPSI4IiBoZWlnaHQ9IjgiIGZpbGw9Im5vbmUiLz48Y2lyY2xlIGN4PSI0IiBjeT0iNCIgcj0iMSIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==')] z-0 rounded-b-[1.4rem]"></div>
 
           <!-- Profile Image -->
-          <div class="relative w-16 h-16 sm:w-20 sm:h-20 mt-0 rounded-xl p-1 bg-[#f8fafc] shadow-[0_15px_30px_rgba(0,0,0,0.8)] shrink-0 transform transition-transform duration-500 border border-black/10 z-20"
-               :class="isHovered ? 'scale-110 translate-z-10' : ''">
-            <div class="w-full h-full rounded-lg overflow-hidden border border-gray-200 relative bg-white relative">
-               <!-- Removed 'filter contrast-110' to make photo clearly visible -->
+          <div class="relative w-16 h-16 sm:w-20 sm:h-20 mt-0 rounded-xl p-1 bg-[#f8fafc] shadow-[0_15px_30px_rgba(0,0,0,0.8)] shrink-0 border border-black/10 z-20 id-photo">
+            <div class="w-full h-full rounded-lg overflow-hidden border border-gray-200 bg-white relative">
                <img src="/profile.jpeg" loading="lazy" class="w-full h-full object-cover brightness-105" />
                <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent"></div>
             </div>
@@ -78,23 +75,23 @@
           </div>
 
           <!-- Info Text -->
-          <div class="text-center w-full mt-2 z-20">
+          <div class="text-center w-full mt-2 z-20 id-info">
             <h2 class="text-base sm:text-lg font-extrabold text-[#0f172a] tracking-widest font-['Outfit'] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] mb-1">M. REZA N.</h2>
             <p class="text-[8px] sm:text-[9px] text-[#ec4899] font-black tracking-[0.25em] uppercase drop-shadow-[0_0_8px_rgba(236,72,153,0.5)]">Frontend Developer</p>
             <p class="text-[7px] sm:text-[7.5px] text-slate-500 mt-1 leading-tight px-1 font-semibold">Spesialis dalam merancang antarmuka premium dan pengalaman web modern.</p>
+          </div>
             
-            <!-- Metadata Box -->
-            <div class="mt-2 text-[7px] sm:text-[8px] font-bold text-left w-full space-y-1.5 text-slate-600 font-mono bg-white/60 p-2 sm:p-2.5 rounded-lg border border-black/5 shadow-[inset_0_2px_10px_rgba(0,0,0,0.5)] backdrop-blur-md relative overflow-hidden">
-               <!-- Deco line -->
-               <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#8b5cf6] to-[#ec4899]"></div>
-               <div class="flex justify-between items-center pl-2"><span class="text-[#0f172a]/40">ID_NUM</span> <span class="text-[#0f172a] tracking-widest">REZA-2026</span></div>
-               <div class="flex justify-between items-center pl-2"><span class="text-[#0f172a]/40">DEPT</span> <span class="tracking-widest text-[#8b5cf6]">ENGINEERING</span></div>
-               <div class="flex justify-between items-center pl-2"><span class="text-[#0f172a]/40">ACCESS</span> <span class="px-1.5 py-0.5 bg-gradient-to-r from-[#ec4899]/20 to-[#8b5cf6]/20 text-[#0f172a] rounded-[4px] border border-black/10 tracking-widest">PREMIUM</span></div>
-            </div>
+          <!-- Metadata Box -->
+          <div class="text-[7px] sm:text-[8px] font-bold text-left w-full space-y-1.5 text-slate-600 font-mono bg-white/60 p-2 sm:p-2.5 rounded-lg border border-black/5 shadow-[inset_0_2px_10px_rgba(0,0,0,0.5)] backdrop-blur-md relative overflow-hidden z-20 id-meta">
+             <!-- Deco line -->
+             <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#8b5cf6] to-[#ec4899]"></div>
+             <div class="flex justify-between items-center pl-2"><span class="text-[#0f172a]/40">ID_NUM</span> <span class="text-[#0f172a] tracking-widest">REZA-2026</span></div>
+             <div class="flex justify-between items-center pl-2"><span class="text-[#0f172a]/40">DEPT</span> <span class="tracking-widest text-[#8b5cf6]">ENGINEERING</span></div>
+             <div class="flex justify-between items-center pl-2"><span class="text-[#0f172a]/40">ACCESS</span> <span class="px-1.5 py-0.5 bg-gradient-to-r from-[#ec4899]/20 to-[#8b5cf6]/20 text-[#0f172a] rounded-[4px] border border-black/10 tracking-widest">PREMIUM</span></div>
           </div>
 
           <!-- Futuristic Barcode Fake -->
-          <div class="w-full flex justify-between items-end h-5 sm:h-6 mt-2 opacity-80 z-20 drop-shadow-[0_0_10px_rgba(0,0,0,0.1)]">
+          <div class="w-full flex justify-between items-end h-5 sm:h-6 mt-2 opacity-80 z-20 drop-shadow-[0_0_10px_rgba(0,0,0,0.1)] id-barcode">
              <div class="h-full w-1 sm:w-1.5 bg-white/90 rounded-t-sm"></div>
              <div class="h-[70%] w-2 sm:w-2.5 bg-white/90 rounded-t-sm"></div>
              <div class="h-full w-1 sm:w-1 bg-white/90 rounded-t-sm"></div>
@@ -102,10 +99,10 @@
              <div class="h-full w-0.5 sm:w-1 bg-white/90 rounded-t-sm"></div>
              <div class="h-full w-4 sm:w-5 bg-[#ec4899] rounded-t-sm"></div>
              <div class="h-[60%] w-1 sm:w-1.5 bg-white/90 rounded-t-sm"></div>
-             <div class="h-[90%] w-2 sm:w-2.5 bg-white/90 rounded-t-sm"></div>
+             <div class="h-[90%] w-2 sm:w-2.5 bg-[#8b5cf6] rounded-t-sm"></div>
              <div class="h-full w-1 sm:w-1 bg-white/90 rounded-t-sm"></div>
              <div class="h-full w-2 sm:w-2.5 bg-white/90 rounded-t-sm"></div>
-             <div class="h-[70%] w-1 sm:w-1.5 bg-[#8b5cf6] rounded-t-sm"></div>
+             <div class="h-[70%] w-1 sm:w-1.5 bg-[#ec4899] rounded-t-sm"></div>
           </div>
         </div>
       </div>
@@ -141,8 +138,24 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const cardRef = ref(null)
 const rotX = ref(0)
 const rotY = ref(0)
+const targetRotX = ref(0)
+const targetRotY = ref(0)
+
 const glareX = ref(50)
 const glareY = ref(50)
+const targetGlareX = ref(50)
+const targetGlareY = ref(50)
+
+const scale = ref(1)
+const targetScale = ref(1)
+
+const shadowY = ref(20)
+const targetShadowY = ref(20)
+const shadowBlur = ref(40)
+const targetShadowBlur = ref(40)
+const shadowOpacity = ref(0.15)
+const targetShadowOpacity = ref(0.15)
+
 const isHovered = ref(false)
 const startAnimation = ref(false)
 
@@ -161,37 +174,59 @@ const handleMouseMove = (e) => {
   const maxRotX = 15
   const maxRotY = 20
   
-  rotY.value = (mouseX / (rect.width / 2)) * maxRotY
-  rotX.value = -(mouseY / (rect.height / 2)) * maxRotX
+  targetRotY.value = (mouseX / (rect.width / 2)) * maxRotY
+  targetRotX.value = -(mouseY / (rect.height / 2)) * maxRotX
   
   // Glare position (percentage)
-  glareX.value = ((e.clientX - rect.left) / rect.width) * 100
-  glareY.value = ((e.clientY - rect.top) / rect.height) * 100
+  targetGlareX.value = ((e.clientX - rect.left) / rect.width) * 100
+  targetGlareY.value = ((e.clientY - rect.top) / rect.height) * 100
 }
 
 const handleMouseEnter = () => {
   isHovered.value = true
+  targetScale.value = 1.05
+  targetShadowY.value = 40
+  targetShadowBlur.value = 80
+  targetShadowOpacity.value = 0.45
 }
 
 const handleMouseLeave = () => {
   isHovered.value = false
-  rotX.value = 0
-  rotY.value = 0
-  glareX.value = 50
-  glareY.value = 50
+  targetRotX.value = 0
+  targetRotY.value = 0
+  targetGlareX.value = 50
+  targetGlareY.value = 50
+  targetScale.value = 1
+  targetShadowY.value = 20
+  targetShadowBlur.value = 40
+  targetShadowOpacity.value = 0.15
 }
 
-// Gentle floating animation when not hovered
+// Gentle floating animation loop using lerp for ultra-smooth updates
 let frameId = null
 let angle = 0
 
-const animateIdle = () => {
+const animate = () => {
   if (!isHovered.value) {
     angle += 0.015
-    rotY.value = Math.sin(angle) * 8
-    rotX.value = Math.cos(angle * 1.5) * 5
+    targetRotY.value = Math.sin(angle) * 6
+    targetRotX.value = Math.cos(angle * 1.5) * 4
+    targetGlareX.value = 50 + Math.sin(angle) * 15
+    targetGlareY.value = 50 + Math.cos(angle) * 15
   }
-  frameId = requestAnimationFrame(animateIdle)
+
+  // Smooth interpolation (lerp)
+  const lerpFactor = 0.08 // Slightly lower factor for extra buttery lag/momentum
+  rotX.value += (targetRotX.value - rotX.value) * lerpFactor
+  rotY.value += (targetRotY.value - rotY.value) * lerpFactor
+  glareX.value += (targetGlareX.value - glareX.value) * lerpFactor
+  glareY.value += (targetGlareY.value - glareY.value) * lerpFactor
+  scale.value += (targetScale.value - scale.value) * lerpFactor
+  shadowY.value += (targetShadowY.value - shadowY.value) * lerpFactor
+  shadowBlur.value += (targetShadowBlur.value - shadowBlur.value) * lerpFactor
+  shadowOpacity.value += (targetShadowOpacity.value - shadowOpacity.value) * lerpFactor
+
+  frameId = requestAnimationFrame(animate)
 }
 
 onMounted(() => {
@@ -200,7 +235,7 @@ onMounted(() => {
     startAnimation.value = true
   }, 2800) // Trigger slightly before preloader exits to make it seamless
 
-  frameId = requestAnimationFrame(animateIdle)
+  frameId = requestAnimationFrame(animate)
 })
 
 onUnmounted(() => {
@@ -216,29 +251,58 @@ onUnmounted(() => {
   transform-style: preserve-3d;
 }
 .id-content {
-  transform: translateZ(40px);
+  transform-style: preserve-3d;
 }
-.translate-z-10 {
-  transform: translateZ(60px) scale(1.1);
+
+/* Layered Parallax Depths */
+.id-photo {
+  transform: translateZ(40px);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.id-card:hover .id-photo {
+  transform: translateZ(65px) scale(1.08);
+}
+
+.id-info {
+  transform: translateZ(25px);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.id-card:hover .id-info {
+  transform: translateZ(40px) scale(1.03);
+}
+
+.id-meta {
+  transform: translateZ(15px);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.id-card:hover .id-meta {
+  transform: translateZ(25px);
+}
+
+.id-barcode {
+  transform: translateZ(8px);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.id-card:hover .id-barcode {
+  transform: translateZ(15px);
 }
 
 .card-hidden {
-  transform: translateY(-150vh) rotateZ(8deg);
+  transform: translateY(-100vh) rotateZ(10deg);
   opacity: 0;
 }
 
 @keyframes dropDown {
-  0%   { transform: translateY(-150vh) rotateZ(15deg); opacity: 1; animation-timing-function: ease-in; }
-  35%  { transform: translateY(60px) rotateZ(-8deg); opacity: 1; animation-timing-function: ease-out; }
-  55%  { transform: translateY(-30px) rotateZ(5deg); opacity: 1; animation-timing-function: ease-in-out; }
-  75%  { transform: translateY(15px) rotateZ(-2deg); opacity: 1; animation-timing-function: ease-in-out; }
-  85%  { transform: translateY(-5px) rotateZ(1deg); opacity: 1; animation-timing-function: ease-in-out; }
-  95%  { transform: translateY(2px) rotateZ(-0.5deg); opacity: 1; animation-timing-function: ease-in-out; }
+  0%   { transform: translateY(-100vh) rotateZ(10deg); opacity: 0; }
+  50%  { opacity: 1; }
+  70%  { transform: translateY(20px) rotateZ(-4deg); }
+  85%  { transform: translateY(-10px) rotateZ(2deg); }
+  95%  { transform: translateY(5px) rotateZ(-1deg); }
   100% { transform: translateY(0) rotateZ(0); opacity: 1; }
 }
 
 .animate-drop-down {
-  animation: dropDown 2.2s linear forwards;
+  animation: dropDown 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
   transform-origin: top center;
 }
 </style>
