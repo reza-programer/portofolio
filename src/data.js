@@ -1,4 +1,5 @@
 import { ref, watch, computed } from 'vue'
+import { supabase } from './supabase.js'
 
 const defaultProjects = [
   {
@@ -25,7 +26,6 @@ const state = ref({
   messages: []
 })
 
-// Exposed refs for convenience
 export const projects = computed({
   get: () => state.value.projects,
   set: (val) => state.value.projects = val
@@ -37,59 +37,80 @@ export const messages = computed({
 })
 
 let isFetching = true
+let previousProjectIds = []
+let previousMessageIds = []
 
-// Initial Load: Try LocalStorage first (immediate), then API
-const localData = localStorage.getItem('portfolio_db')
-if (localData) {
+// Fetch Data from Supabase
+const fetchFromSupabase = async () => {
   try {
-    const parsed = JSON.parse(localData)
-    // Basic migration/validation
-    state.value.projects = parsed.projects || (Array.isArray(parsed) ? parsed : [])
-    state.value.messages = parsed.messages || []
-    isFetching = false
-  } catch (e) {
-    console.error("Gagal baca LocalStorage:", e)
-  }
-}
-
-// Background Sync from API
-fetch('/db.json')
-  .then(res => res.json())
-  .then(data => {
-    // Migration logic for old db format (if data is just an array)
-    const normalizedData = (data && data.projects) ? data : { projects: Array.isArray(data) ? data : [], messages: [] }
+    const { data: projData, error: projErr } = await supabase.from('projects').select('*').order('id', { ascending: true })
+    if (projErr) throw projErr
     
-    // Jangan menimpa data jika sudah ada di LocalStorage, kecuali LocalStorage kosong
-    if (!localData || (state.value.projects.length === 0 && state.value.messages.length === 0)) {
-      if (normalizedData.projects.length > 0 || normalizedData.messages.length > 0) {
-        state.value = normalizedData
-        localStorage.setItem('portfolio_db', JSON.stringify(normalizedData))
-      } else {
-        state.value.projects = defaultProjects
-      }
+    if (projData && projData.length > 0) {
+      state.value.projects = projData
+    } else {
+      state.value.projects = defaultProjects
+      // Seed default projects to Supabase if empty
+      await supabase.from('projects').upsert(defaultProjects)
     }
-  })
-  .catch(err => {
-    console.warn("Backend link unavailable, using local data.", err)
+
+    const { data: msgData, error: msgErr } = await supabase.from('messages').select('*').order('id', { ascending: true })
+    if (msgErr) throw msgErr
+    
+    if (msgData) {
+      state.value.messages = msgData
+    }
+
+    // Keep track of IDs for deletion detection
+    previousProjectIds = state.value.projects.map(p => p.id)
+    previousMessageIds = state.value.messages.map(m => m.id)
+
+  } catch (err) {
+    console.error("Gagal terhubung ke Supabase:", err)
+    // Fallback to defaults if completely offline/error
     if (!state.value.projects.length) {
       state.value.projects = defaultProjects
     }
-  })
-  .finally(() => {
+  } finally {
     isFetching = false
-  })
+  }
+}
 
-// Persist changes to both LocalStorage and API
-watch(state, (newVal) => {
+fetchFromSupabase()
+
+// Auto-sync changes to Supabase
+watch(state, async (newVal) => {
   if (isFetching) return;
-  
-  // Save to browser immediately
-  localStorage.setItem('portfolio_db', JSON.stringify(newVal))
-  
-  // Try to save to file backend in background
-  fetch('/api/projects', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(newVal)
-  }).catch(e => console.error("Sync API failed (offline mode):", e))
+
+  try {
+    // 1. Sync Projects
+    const currentProjectIds = newVal.projects.map(p => p.id)
+    const deletedProjectIds = previousProjectIds.filter(id => !currentProjectIds.includes(id))
+    
+    if (deletedProjectIds.length > 0) {
+      await supabase.from('projects').delete().in('id', deletedProjectIds)
+    }
+    
+    if (newVal.projects.length > 0) {
+      // Supabase automatically handles JSON arrays if the column is JSONB
+      await supabase.from('projects').upsert(newVal.projects)
+    }
+    previousProjectIds = currentProjectIds
+
+    // 2. Sync Messages
+    const currentMessageIds = newVal.messages.map(m => m.id)
+    const deletedMessageIds = previousMessageIds.filter(id => !currentMessageIds.includes(id))
+    
+    if (deletedMessageIds.length > 0) {
+      await supabase.from('messages').delete().in('id', deletedMessageIds)
+    }
+
+    if (newVal.messages.length > 0) {
+      await supabase.from('messages').upsert(newVal.messages)
+    }
+    previousMessageIds = currentMessageIds
+
+  } catch (err) {
+    console.error("Gagal menyimpan ke Supabase:", err)
+  }
 }, { deep: true })
