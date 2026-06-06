@@ -59,11 +59,14 @@ fetch('/db.json')
     // Migration logic for old db format (if data is just an array)
     const normalizedData = (data && data.projects) ? data : { projects: Array.isArray(data) ? data : [], messages: [] }
     
-    if (normalizedData.projects.length > 0 || normalizedData.messages.length > 0) {
-      state.value = normalizedData
-      localStorage.setItem('portfolio_db', JSON.stringify(normalizedData))
-    } else if (!localData) {
-      state.value.projects = defaultProjects
+    // Jangan menimpa data jika sudah ada di LocalStorage, kecuali LocalStorage kosong
+    if (!localData || (state.value.projects.length === 0 && state.value.messages.length === 0)) {
+      if (normalizedData.projects.length > 0 || normalizedData.messages.length > 0) {
+        state.value = normalizedData
+        localStorage.setItem('portfolio_db', JSON.stringify(normalizedData))
+      } else {
+        state.value.projects = defaultProjects
+      }
     }
   })
   .catch(err => {

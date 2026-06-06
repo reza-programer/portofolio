@@ -375,6 +375,12 @@ watch(currentRoute, (newVal) => {
   if (newVal !== window.location.hash) {
     window.location.hash = newVal
   }
+  if (newVal !== '#admin') {
+    nextTick(() => {
+      window.scrollTo(0, 0)
+      setupScrollObserver()
+    })
+  }
 })
 
 window.addEventListener('hashchange', () => {
